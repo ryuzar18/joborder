@@ -15,6 +15,7 @@ class UserController extends Controller
     	// mengirim data pegawai ke view index
     	return view('user',['users' => $users]);
     }
+    
     public function tambah()
 	{
 	 

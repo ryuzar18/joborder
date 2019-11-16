@@ -1,13 +1,6 @@
 @extends('admin.app')
 
-
 @section('content')
-<section class="content-header">
-    <a href="/joborder/tambah" class="btn btn-success btn-lg">
-      <i class="fa fa-plus"></i>TAMBAH
-    </a>
-</section>
-
 <section class="content">
   <div class="box">
     <div class="box-body">
@@ -26,9 +19,9 @@
       <td>{{ $users->id_jobOrder }}</td>
       <td>{{ $users->merkTipe }}</td>
       <td>{{ $users->noPlat }}</td>
-      <td class="col-md-2">
-        <a href="joborder/{{ $users->id_jobOrder }}" 
-          class= "btn btn-warning btn-xs pull-right"><i class="fa fa-edit"></i> VIEW </a>
+      <td>
+        <a href="pekerjaan/{{ $users->id_jobOrder }}" 
+          class= "btn btn-warning btn-xs"><i class="fa fa-edit"></i> VIEW </a>
       </td>
     </tr>
     @endforeach
@@ -38,4 +31,5 @@
 </div>
 </div>
 </section>
+
 @endsection

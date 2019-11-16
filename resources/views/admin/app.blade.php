@@ -108,6 +108,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{url('adminlte/plugins/iCheck/icheck.min.js')}}"></script>
 
+
 <script>
   $(function () {
     $('#example1').DataTable()

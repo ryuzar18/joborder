@@ -1,10 +1,9 @@
 @extends('admin.app')
 
-
 @section('content')
 <section class="content-header">
-    <a href="/joborder/tambah" class="btn btn-success btn-lg">
-      <i class="fa fa-plus"></i>TAMBAH
+    <a href="/pekerjaan/tambah" class="btn btn-success btn-lg">
+    <i class="fa fa-plus"></i>TAMBAH
     </a>
 </section>
 
@@ -15,8 +14,8 @@
   <thead>
     <tr>
       <th>ID JOB ORDER</th>
-      <th>MERK & TIPE MOBIL</th>
-      <th>NO PLAT</th>
+      <th>URAIAN PEKERJAAN</th>
+      <th>KOMENTAR PEKERJAAN</th>
       <th>ACTION</th>
     </tr>
   </thead>
@@ -24,11 +23,13 @@
     @foreach ($users as $users)
     <tr>
       <td>{{ $users->id_jobOrder }}</td>
-      <td>{{ $users->merkTipe }}</td>
-      <td>{{ $users->noPlat }}</td>
-      <td class="col-md-2">
-        <a href="joborder/{{ $users->id_jobOrder }}" 
-          class= "btn btn-warning btn-xs pull-right"><i class="fa fa-edit"></i> VIEW </a>
+      <td>{{ $users->uraian_pekerjaan }}</td>
+      <td>{{ $users->kom_pekerjaan }}</td>
+      <td>
+        <a href="pekerjaan/{{ $users->id_jobOrder }}" 
+          class= "btn btn-warning btn-xs"><i class="fa fa-edit"></i> EDIT </a>
+        <a href="" 
+          class= "btn btn-danger btn-xs"><i class="fa fa-trash"></i> HAPUS </a>
       </td>
     </tr>
     @endforeach
@@ -38,4 +39,5 @@
 </div>
 </div>
 </section>
+
 @endsection

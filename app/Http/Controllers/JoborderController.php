@@ -8,7 +8,15 @@ use Illuminate\Support\Facades\DB;
 class JoborderController extends Controller
 {
     public function list(){
-		return view('joborder');
+		$users = DB::table('joborder')->get();
+ 
+        return view('joborder',['users' => $users]);
+	}
+
+	public function edit(){
+		$users = DB::table('joborder')->get();
+ 
+        return view('joborderedit',['users' => $users]);
 	}
 
 	public function tambah(){
@@ -17,16 +25,77 @@ class JoborderController extends Controller
 
 	public function store(Request $request)
 	{
-		// insert data ke table pegawai
 		DB::table('joborder')->insert([
-			'id_joborder' => $request->id,
-			'tgl_msk' => $request->tglmasuk,
-			'tgl_keluar' => $request->tglkeluar,
-			'stnk' => $request->stnk,
-			'bukuManual' => $request->buku,
-			'headLamp' => $request->head
+			'id_joborder' 		=> $request->id,
+			'tgl_msk' 			=> $request->tglmasuk,
+			'tgl_keluar' 		=> $request->tglkeluar,
+			'merkTipe'			=> $request->merk,
+			'nmPemilik' 		=> $request->nama,
+			'alamatPemilik' 	=> $request->alamat,
+			'noPlat' 			=> $request->nopol,
+			'tlpPemilik' 		=> $request->telepon,
+			'kon_bbm'			=> $request->bbm,
+
+			'stnk' 					=> $request->stnk,
+			'bukuManual' 			=> $request->buku,
+			'headLamp' 				=> $request->head,
+			'ratingHazard' 			=> $request->reting,
+			'fogLamp' 				=> $request->fog,
+			'stopLamp'				=> $request->stop,
+			'sensorParkir' 			=> $request->sensor,
+			'kon_kaca'				=> $request->kaca,
+			'kon_kacaFilm' 			=> $request->film,
+			'wipperNozzle' 			=> $request->wipper,
+			'spionRemote' 			=> $request->spion,
+			'weathership' 			=> $request->water,
+			'handlePintu' 			=> $request->handle,
+			'listBody' 				=> $request->list,
+			'karpetLumpur' 			=> $request->karpet,
+			'kon_velgWheelDop'		=> $request->velg,
+			'footstep' 				=> $request->foot,
+			'tandukDep' 			=> $request->tanduk,
+			'talangAir' 			=> $request->talang,
+			'remoteCentralLock' 	=> $request->remote,
+			'kon_spidometer' 		=> $request->spidometer,
+			'ac' 					=> $request->ac,
+			'tapePower' 			=> $request->tape,
+			'lighter' 				=> $request->lighter,
+			'powerWindow' 			=> $request->power,
+			'karpetDasar' 			=> $request->dasar,
+			'karpetInteriorBagasi' 	=> $request->interior,
+			'kon_plafonLampu'		=> $request->plafon,
+			'kon_jokFungsi' 		=> $request->jok,
+			'kon_deckPintu' 		=> $request->deck,
+			'aki' 					=> $request->aki,
+			'peredamKapMes' 		=> $request->peredam,
+			'grille' 				=> $request->grille,
+			'logo' 					=> $request->logo,
+			'klakson' 				=> $request->klakson,
+			'sunroof' 				=> $request->sunroof,
+			'kunciRoda' 			=> $request->kunciroda,
+			'toolsKit' 				=> $request->tools,
+			'dongkrak'				=> $request->dongkrak,
+			'segitiga' 				=> $request->segitiga,
+			'banSerep' 				=> $request->serep,
+
+			'kon_spionKir' 			=> $request->spikir,
+			'kon_spionKan' 			=> $request->spinan,
+			'kon_lampuDepKan' 		=> $request->depnan,
+			'kon_lampuDepKir' 		=> $request->depkir,
+			'kon_lampuBelKir' 		=> $request->belkir,
+			'kon_lampuBelKan' 		=> $request->belnan,
+			'kon_bumper' 			=> $request->bumper,
+			'kon_kapMobil' 			=> $request->kap,
+			'kon_kacaDep' 			=> $request->kacdep,
+			'kon_kursi' 			=> $request->kursi,
+			'kon_kacaBel' 			=> $request->kacbel,
+			'kon_bagasi' 			=> $request->bagasi,
+			'kon_banDep' 			=> $request->bandep,
+			'kon_banBel' 			=> $request->banbel,
+			'kon_pintuSamDep' 		=> $request->pindep,
+			'kon_pintuSamBel' 		=> $request->pinbel,
+			'kon_kacaSam' 			=> $request->kacsam
 		]);
-		dd($request->all());
 		// alihkan halaman ke halaman pegawai
 		return redirect('/joborder');
 	 

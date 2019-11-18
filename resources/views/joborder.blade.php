@@ -27,8 +27,10 @@
       <td>{{ $users->merkTipe }}</td>
       <td>{{ $users->noPlat }}</td>
       <td class="col-md-2">
+        <a href="joborder/delete/{{ $users->id_jobOrder }}" 
+          class= "btn btn-danger btn-xs pull-right"><i class="fa fa-trash"></i> DELETE </a>
         <a href="joborder/{{ $users->id_jobOrder }}" 
-          class= "btn btn-warning btn-xs pull-right"><i class="fa fa-edit"></i> VIEW </a>
+          class= "btn btn-warning btn-xs pull-right"><i class="fa fa-eye"></i> VIEW </a>
       </td>
     </tr>
     @endforeach

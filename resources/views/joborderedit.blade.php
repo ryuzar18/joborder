@@ -5,7 +5,7 @@
 <!-- Main content -->
 <section class="content">
     <button class="btn btn-success btn-lg" form="formID" type="submit" ">
-      <i class="fa fa-save"></i> Simpan
+      <i class="fa fa-save"></i> Edit
     </button>
     <button class="btn btn-info btn-lg" form="formID"  name="reset" type="reset" ">
       <i class="fa fa-times"></i> Reset
@@ -13,7 +13,7 @@
 
   <div class="row">
   <div class="box-body">
-  <form class="form-horizontal" action="/joborder/store" method="post" id="formID">
+  <form class="form-horizontal" action="/joborder/update" method="post" id="formID">
   {{ csrf_field() }}
   @foreach ($users as $users)
   <div class="box box-danger">
@@ -459,15 +459,12 @@
   </div>
 
 </section>
-
 <script>
-$(function(){
-$('.form-check-input'){
-    if($(this).val() == 1){
+ $('.form-check-input').each(function(e){
+    if ($(this).val() == 1) {
         $(this).prop("checked", true);
     }
-};
-});
+ });
 </script>
 
 @endsection

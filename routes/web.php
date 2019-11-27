@@ -1,15 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,12 +8,7 @@ Route::get('/', function () {
 // JOB ORDER
 Route::get('/joborder', 'JoborderController@list')->middleware('auth');
 Route::get('/joborder/tambah', 'JoborderController@tambah')->middleware('auth');
-Route::get('/joborder/{id}', function ($id) {
-    $users = DB::table('joborder')->where('id_jobOrder', $id)->get();
- 
-    	// mengirim data pegawai ke view index
-    	return view('joborderedit',['users' => $users]);
-});
+Route::get('/joborder/{id}', 'JoborderController@edit')->middleware('auth');
 Route::post('/joborder/store','JobOrderController@store')->middleware('auth');
 Route::post('/joborder/update','JobOrderController@update')->middleware('auth');
 Route::get('/joborder/delete/{id}','JobOrderController@delete')->middleware('auth');
@@ -31,13 +16,11 @@ Route::get('/joborder/delete/{id}','JobOrderController@delete')->middleware('aut
 
 // PEKERJAAN
 Route::get('/pekerjaan', 'PekerjaanController@list')->middleware('auth');
-Route::get('/pekerjaan/tambah', 'PekerjaanController@tambah')->middleware('auth');
-Route::get('/pekerjaan/{id}', function ($id) {
-    $users = DB::table('pekerjaan')->where('id_jobOrder', $id)->get();
- 
-    	// mengirim data pegawai ke view index
-    	return view('listpekerjaan',['users' => $users]);
-});
+Route::get('/pekerjaan/tambah/{id}', 'PekerjaanController@tambah')->middleware('auth');
+Route::get('/pekerjaan/{id}', 'PekerjaanController@getid');
+Route::get('/pekerjaan/edit/{id}', 'PekerjaanController@edit');
+Route::get('/pekerjaan/delete/{id}','PekerjaanController@delete')->middleware('auth');
+Route::post('/pekerjaan/update','PekerjaanController@update')->middleware('auth');
 Route::post('/pekerjaan/store','PekerjaanController@store')->middleware('auth');
 
 

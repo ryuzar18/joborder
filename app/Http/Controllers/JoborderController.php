@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class JoborderController extends Controller
 {
@@ -13,14 +15,16 @@ class JoborderController extends Controller
         return view('joborder',['users' => $users]);
 	}
 
-	public function edit(){
-		$users = DB::table('joborder')->get();
- 
-        return view('joborderedit',['users' => $users]);
+	public function edit($id){
+		$users = DB::table('joborder')->where('id_jobOrder', $id)->get();
+    	return view('joborderedit',['users' => $users]);
 	}
 
 	public function tambah(){
-		return view('jobordertambah');
+		$tanggal = Carbon::today()->toDateString();
+		$rand = Str::random();
+		$id = $tanggal."_".$rand;
+		return view('jobordertambah',['id' => $id]);
 	}
 
 	public function delete($id){
@@ -181,6 +185,5 @@ class JoborderController extends Controller
 		]);
 		// alihkan halaman ke halaman pegawai
 		return redirect('/joborder');
-	 
 	}
 }

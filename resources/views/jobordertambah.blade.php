@@ -4,10 +4,10 @@
 @section('content')
 <!-- Main content -->
 <section class="content">
-    <button class="btn btn-success btn-lg" form="formID" type="submit" ">
+    <button class="btn btn-success btn-lg" form="formID" type="submit">
       <i class="fa fa-save"></i> Simpan
     </button>
-    <button class="btn btn-info btn-lg" form="formID"  name="reset" type="reset" ">
+    <button class="btn btn-info btn-lg" form="formID"  name="reset" type="reset">
       <i class="fa fa-times"></i> Reset
     </button>
 
@@ -24,7 +24,7 @@
     <div class="form-group form-group-lg">
         <label class="col-md-2 control-label">Kode Job Order</label>
       <div class="col-md-8">
-        <input type="text" name="id" class="form-control" required>
+        <input type="text" name="id" class="form-control" value="{{ $id }}" readonly>
       </div>
     </div>
 
